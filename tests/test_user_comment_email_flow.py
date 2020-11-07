@@ -22,7 +22,7 @@ def test_search_posts():
     assert all_posts_by_user != None or len(all_posts_by_user) != 0, "No Post has been published by the user"
 
 
-@pytest.mark.depends(on=['test_serach_posts'])
+@pytest.mark.depends(on=['test_search_posts'])
 def test_search_comments():
     global all_posts_by_user
     global all_emails
