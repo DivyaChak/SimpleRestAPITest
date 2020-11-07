@@ -12,7 +12,7 @@ class ApiCallUtility(object):
 
 
     def assert_status_code(self):
-        assert self.status_code == self.expected_status_code, f"Bad Status code. Seached user/post/comment not present Expected {self.expected_status_code}, Actual status code: {self.status_code},URL: {self.url} {self.rs_json}"
+        assert self.status_code == self.expected_status_code, f"Bad Status code. Seached user/post/comment not present Expected {self.expected_status_code}, Actual status code: {self.status_code},URL: {self.url}"
     def get(self, endpoint=None, payload=None, headers=None, expected_status_code=200):
         if not headers:
             headers = {"Content-Type": "application/json"}
