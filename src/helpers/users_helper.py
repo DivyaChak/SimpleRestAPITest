@@ -9,13 +9,15 @@ class User(object):
     # Constructor
     def __init__(self, username):
         self.api_call_utility = ApiCallUtility()
-        self._endpoint = None
+        self._endpoint = "users"
         self._username = username
 
     # This function is for getting userId of a user using the username of the user
     def get_user_id(self):
-        self._endpoint = 'users?username=' + str(self._username)
-        user_details = self.api_call_utility.get(self._endpoint)
+        payload={
+            "username": self._username
+        }
+        user_details = self.api_call_utility.get(self._endpoint,payload)
         user_id = user_details[0]['id']
         logger.info(user_details)
 

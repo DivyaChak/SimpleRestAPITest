@@ -42,3 +42,4 @@ def test_validate_email_in_comments():
     assert all_emails != None or len(all_emails) != 0, "No email found to evaluate"
     for email in all_emails:
         assert validate_email(email) == True, f"{email} Not Valid Email"
+
