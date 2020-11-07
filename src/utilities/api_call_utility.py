@@ -23,5 +23,4 @@ class ApiCallUtility(object):
         logger.debug(f"GET API response: {self.status_code}")
         self.assert_status_code()
         self.rs_json = rs_api.json()
-        logger.debug(f"GET API response: {self.rs_json}")
         return self.rs_json

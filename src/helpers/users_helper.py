@@ -19,7 +19,6 @@ class User(object):
         }
         user_details = self.api_call_utility.get(self._endpoint,payload)
         user_id = user_details[0]['id']
-        logger.info(user_details)
 
         return user_id
 

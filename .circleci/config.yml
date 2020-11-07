@@ -13,7 +13,7 @@ jobs:
         - run:
             name: Run Tests
             command: |
-              pytest --html=test-reports/report.html
+              pytest --log-cli-level=20 --html=test-reports/report.html
         - store_test_results:
             path: test-reports
         - store_artifacts:
