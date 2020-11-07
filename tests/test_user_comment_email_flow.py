@@ -8,14 +8,14 @@ import logging as logger
 username = "Delphine"
 user_id = None
 
-
+# searches for the user
 def test_search_user():
     global user_id
     user = User(username)
     user_id = user.get_user_id()
     logger.info(f"User {username} is present ")
     assert True
-
+# searches for the posts made by the user and this function depends on the test_search_user function
 @pytest.mark.depends(on=['test_search_user'])
 def test_search_posts():
     global user_id
@@ -26,7 +26,7 @@ def test_search_posts():
     logger.info(f"{len(all_posts_by_user)} no of posts made by the users")
     assert True
 
-
+# searches for the comments made on posts posted by the user and this function depends on the test_search_posts function
 @pytest.mark.depends(on=['test_search_posts'])
 def test_search_comments():
     global all_posts_by_user
@@ -42,7 +42,7 @@ def test_search_comments():
     all_emails = set(emails)
 
 
-
+# validates the email id of each user who made comment and this function depends on the test_search_comments function
 @pytest.mark.depends(on=['test_search_comments'])
 def test_validate_email_in_comments():
     global all_emails
