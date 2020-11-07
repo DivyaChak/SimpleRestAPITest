@@ -5,7 +5,7 @@ from src.helpers.comments_helper import Comment
 from src.utilities.email_validator_utility import validate_email
 
 username = "Delphine"
-
+user_id = None
 
 def test_search_user():
     global user_id
