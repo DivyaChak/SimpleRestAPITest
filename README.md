@@ -11,9 +11,9 @@ WorkFlow of the tests -
 4. It validates emails of of every user who made comment
 
 Directory Structure -
+````
 src : holdes all the neccessary modules to make call to api , fetch data , extract data and other utility functions
-|--- config  -> api_config.py : api endpoint url is mentioned
-|--- helper  -> comments_helper.py : includes class and methods related comment entity for fetching and extrcting data
+|--- config  -> api_config.py : api endpoint url is mentioned|--- helper  -> comments_helper.py : includes class and methods related comment entity for fetching and extrcting data
 |            -> posts_helper.py : includes class and methods related pots entity for fetching and extrcting data
 |            -> user_helper.py : includes class and methods related user entity for fetching and extrcting data 
 |--- utilities -> api_call_utility.py : makes get call to the api depending on the parameter passed and returns responce data
@@ -22,7 +22,7 @@ src : holdes all the neccessary modules to make call to api , fetch data , extra
 |--- pytest.ini -> hold pytest config for logging
 |--- requirement.txt -> all package details are there and used for installing the dependencies
 |--- testReport.html -> its the latest test report ran against the user "Delphine"
-
+```
 How to use this program and run pytest
 [Make sure python 3 (3.8.4) & pip are  already installed ]
 1. Please install all packages using requirement.txt file
