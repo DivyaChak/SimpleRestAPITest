@@ -21,8 +21,7 @@ class ApiCallUtility(object):
         self.status_code = rs_api.status_code
         self.expected_status_code = expected_status_code
         logger.debug(f"GET API response: {self.status_code}")
-
-        self.rs_json = rs_api.json()
         self.assert_status_code()
+        self.rs_json = rs_api.json()
         logger.debug(f"GET API response: {self.rs_json}")
         return self.rs_json
