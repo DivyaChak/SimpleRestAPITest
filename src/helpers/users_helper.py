@@ -1,20 +1,24 @@
 from src.utilities.api_call_utility import ApiCallUtility
 
 
-# import logging as logger
+import logging as logger
 # User class which contains all the variables and methods related to User
 
 
 class User(object):
     # Constructor
-    def __init__(self):
+    def __init__(self, username):
         self.api_call_utility = ApiCallUtility()
         self._endpoint = None
+        self._username = username
 
     # This function is for getting userId of a user using the username of the user
-    def get_user_id_by_username(self, username):
-        self._endpoint = 'user?username=' + str(username)
+    def get_user_id(self):
+        self._endpoint = 'users?username=' + str(self._username)
         user_details = self.api_call_utility.get(self._endpoint)
-        # logger.log(user_details)
-        user_id = int(user_details[0]['id'])
+        user_id = user_details[0]['id']
+        logger.info(user_details)
+
         return user_id
+
+

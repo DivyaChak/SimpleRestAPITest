@@ -11,12 +11,11 @@ class ApiCallUtility(object):
         self._base_url = src.config.api_config.API_URLS[self._env]
 
     def assert_status_code(self):
-        assert self.status_code == self.expected_status_code, f"Bad Status code." \
+        assert self.status_code == self.expected_status_code, f"Bad Status code. Seached user/post/comment not present" \
                                                               f"Expected {self.expected_status_code}, Actual status " \
                                                               f"code: {self.status_code}," \
-                                                              f"URL: {self.url}, Response Json: {self.rs_json}"
-
-    def get(self, endpoint, payload=None, headers=None, expected_status_code=200):
+                                                              f"URL: {self.url}"
+    def get(self, endpoint=None, payload=None, headers=None, expected_status_code=200):
         if not headers:
             headers = {"Content-Type": "application/json"}
 
@@ -24,9 +23,8 @@ class ApiCallUtility(object):
         rs_api = requests.get(url=self.url, data=json.dumps(payload), headers=headers)
         self.status_code = rs_api.status_code
         self.expected_status_code = expected_status_code
-        self.rs_json = rs_api.json()
+        logger.debug(f"GET API response: {self.status_code}")
         self.assert_status_code()
-
+        self.rs_json = rs_api.json()
         logger.debug(f"GET API response: {self.rs_json}")
-
         return self.rs_json
